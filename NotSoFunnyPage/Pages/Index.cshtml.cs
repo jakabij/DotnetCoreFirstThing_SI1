@@ -19,7 +19,15 @@ namespace NotSoFunnyPage.Pages
 
         public void OnGet()
         {
+        }
 
+        public void OnPost([FromForm(Name ="mail")]string mail)
+        {
+            if(!SubsModel.listOfSubs.Contains(mail))
+            {
+                SubsModel.listOfSubs.Add(mail);
+            }
+            Response.Redirect("Subs");
         }
     }
 }
